@@ -1,52 +1,9 @@
-# 🐇 Solid Hop
+Purpose:
 
-💙 A **minimal** and **unopinionated** Vike + Solid + Hono starter.
-
-❤️ We love Vike and Solid, but it might be overwhelming to setup. The goal of this starter is to get you up and running quickly with good defaults without getting in the way of your opinions.
-
-This is more or less what you would get from a starter with `create next-app` or `create svelte` or `create solid`.
-
-If you want a more opinionated and fully-featured boilerplate instead: http://github.com/blankeos/solid-launch
-
-## Tech Stack:
-
-1. Vike + Hono - For SSR + Your own Server.
-2. SolidJS
-3. Bun (Can swap this with Node easily if you want).
-4. Tools: ESLint, Prettier
-
-## Quick Start
-
-1. Clone
-
-```sh
-git clone https://github.com/blankeos/solid-hop <your-app-name>
-cd <your-app-name>
-rm -rf .git # This is your app. Start the commits fresh :D
-```
-
-1. Install
-
-```sh
-bun install
-```
-
-3. Run dev server
-
-```sh
-bun dev
-```
-
-## Building and Deployment
-
-1. Build
-
-```sh
-bun run build
-```
-
-2. Wherever you deploy, just run make sure that this is ran:
-
-```sh
-bun run preview # Just runs server.ts
-```
+- This site is basically a simple blank page website where you can customize the window title.
+- Since Orion Browser does not have folders, I made this to neatly organize some of my pages into their own "folders".
+- Orion Browser has a concept of "nested tabs" or "subtabs" where you can place a tab inside another tab. Effectively performing a tree/folder structure.
+- If the main tab could be this website, you can pretty much treat it as a folder.
+- SSR-safe (state is only on the URL as search params)
+- Dark mode (has dark mode, but may also be themable soon if requested)
+- Folder favicon, currently just a "folder" (can add more if requested)
