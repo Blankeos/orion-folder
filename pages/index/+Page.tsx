@@ -18,14 +18,14 @@ function serializeTitle(title: string): string {
 export function Page() {
   const { urlParsed } = usePageContext();
 
-  let initialTitle = (urlParsed.search?.title as string) || "New Tab";
+  let initialTitle = (urlParsed.search?.title as string) || "New Folder";
   try {
     // Decode the URL component twice to handle double encoding
     initialTitle = decodeURIComponent(decodeURIComponent(initialTitle));
   } catch (e) {
     console.error("Error decoding initial title:", e);
     // If decoding fails, leave the title as is or provide a default
-    initialTitle = "New Tab";
+    initialTitle = "New Folder";
   }
 
   const [title, setTitle] = createSignal(initialTitle);
