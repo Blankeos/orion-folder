@@ -27,8 +27,12 @@
     "vite": "^6.2.4"
   },
   "dependencies": {
+    "@blankeos/vike-routegen": "^0.0.2",
+    "@tailwindcss/vite": "^4.1.0",
+    "bagon-hooks": "^0.0.4",
     "hono": "^4.7.5",
     "solid-js": "^1.9.5",
+    "tailwindcss": "^4.1.0",
     "vike": "0.4.227",
     "vike-metadata-solid": "^1.0.4",
     "vike-solid": "^0.7.9"

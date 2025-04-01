@@ -9,9 +9,13 @@ import vike from "vike/plugin";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
+import vikeRoutegen from "@blankeos/vike-routegen";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const root = resolve(__dirname, ".");
+
+// Tailwind
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [
@@ -32,6 +36,8 @@ export default defineConfig({
     }),
     vike({ prerender: true }),
     vikeSolid(),
+    vikeRoutegen(),
+    tailwindcss(),
   ],
   server: {
     port: 3000,
