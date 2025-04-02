@@ -3,7 +3,7 @@ import { useMetadata } from "vike-metadata-solid";
 import { useDocumentTitle } from "bagon-hooks";
 import { useThemeContext } from "@/contexts/theme";
 import { usePageContext } from "vike-solid/usePageContext";
-import { useFavicon } from "@/lib/use-favicon";
+import { isServer } from "solid-js/web";
 
 function serializeTitle(title: string): string {
   // Replace spaces with hyphens and convert to lowercase for URL-friendliness
@@ -55,9 +55,12 @@ export function Page() {
     ),
   });
 
+  let inputRef!: HTMLInputElement;
   onMount(() => {
     // Set initial title in the input field after hydration
-    setTitle(initialTitle);
+    const clientSideInitialTitle = getInitTitle();
+    setTitle(clientSideInitialTitle);
+    inputRef.value = clientSideInitialTitle;
   });
 
   const handleInput = (e: Event) => {
@@ -80,6 +83,7 @@ export function Page() {
         <div class="text-5xl font-extrabold">🗂️ Orion Folder</div>
         <div class="text-lg opacity-50">Quick and easy folders for the Orion Browser</div>
         <input
+          ref={inputRef}
           type="text"
           value={title()}
           onInput={handleInput}
