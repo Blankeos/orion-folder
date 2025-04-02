@@ -1,19 +1,18 @@
-import { useParams } from "@/route-tree.gen";
 import { createSignal, onMount } from "solid-js";
 import { useMetadata } from "vike-metadata-solid";
 import { useDocumentTitle } from "bagon-hooks";
 import { useThemeContext } from "@/contexts/theme";
 import { usePageContext } from "vike-solid/usePageContext";
+import { useFavicon } from "@/lib/use-favicon";
 
 function serializeTitle(title: string): string {
   // Replace spaces with hyphens and convert to lowercase for URL-friendliness
   return encodeURIComponent(title);
 }
 
-// function deserializeTitle(slug: string): string {
-//   // Replace hyphens with spaces and capitalize the first letter of each word
-//   return decodeURIComponent(slug);
-// }
+const FAVICON = "/favicon.ico";
+// const FAVICON =
+//   "https://raw.githubusercontent.com/FadeMind/W-ICO/refs/heads/master/ICO/Apps%20(Windows%2011)/Adobe/Disk/Premiere%20Pro.ico";
 
 export function Page() {
   const { urlParsed } = usePageContext();
@@ -35,16 +34,23 @@ export function Page() {
   const [title, setTitle] = createSignal(initialTitle);
   useDocumentTitle(title);
 
+  // const [favicon, setFavicon] = createSignal(FAVICON);
+  // useFavicon(favicon);
+
   useMetadata({
     // eslint-disable-next-line solid/reactivity
     title: title(),
     otherJSX: () => (
       <>
-        <link
+        <link rel="icon" href={FAVICON} type="image/svg+xml" />
+        {/* <link
           rel="icon"
-          href="https://api.iconify.design/fluent-emoji:file-folder.svg"
-          type="image/svg+xml"
+          href="https://raw.githubusercontent.com/FadeMind/W-ICO/refs/heads/master/ICO/Apps%20(Windows%2011)/Adobe/Disk/Premiere%20Pro.ico"
         />
+        <link
+          rel="mask-icon"
+          href="https://raw.githubusercontent.com/FadeMind/W-ICO/refs/heads/master/ICO/Apps%20(Windows%2011)/Adobe/Disk/Premiere%20Pro.ico"
+        /> */}
       </>
     ),
   });
